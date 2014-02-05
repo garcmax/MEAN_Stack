@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Anti-Mage",
+        "role": "carry",
+        "sex": "male"
+    },
+    {
+        "name": "Pudge",
+        "role": "mid",
+        "sex": "male"
+    },
+    {
+        "name": "Crystal Maiden",
+        "role": "support",
+        "sex": "female"
+    }
+]
