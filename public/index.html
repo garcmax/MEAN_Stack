@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -23,9 +22,58 @@
 <body>
 
     <!--<div ng-view class="view-frame"></div>-->
-    <div ng-controller="booksCtrl">
-        <select ng-model="book" ng-options="b.title for b in books"></select>
+    <div class="container">
+        <div class="row" ng-controller="booksCtrl">
+            <div class="col-md-6">
+                <select ng-model="book" ng-options="b.title for b in books" ng-change="update()"></select>
+            </div>
+            <div class="col-md-6">
+                <p class="text-info">Title : {{book.title}}</p>
+                <p class="text-info">Author : {{book.author}}</p>
+                <p class="text-info">Year : {{book.year}}</p>
+                <p class="text-info">Genre : {{book.genre}}</p>
+                <button type="button" class="btn" ng-click="delete()">Delete</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <form ng-submit="submit()" ng-controller="addBookCtrl">
+                    <fieldset>
+                        <legend>Add a new Book</legend>
+                        <label>Title</label>
+                        <input type="text" placeholder="Title..." ng-model="newBook.title" ng-required="true">
+                        <label>Author</label>
+                        <input type="text" placeholder="Author name..." ng-model="newBook.author" ng-required="true">
+                        <label>Release date</label>
+                        <input type="text" placeholder="Release date..." ng-model="newBook.year" ng-required="true">
+                        <label>Genre</label>
+                        <input type="text" placeholder="Genre..." ng-model="newBook.genre" ng-required="true">
+                        <p></p>
+                        <button type="submit" class="btn">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-2">
+                <form ng-submit="submit()" ng-controller="updateBookCtrl">
+                    <fieldset>
+                        <legend>Update a Book</legend>
+                        <select ng-model="oldBook" ng-options="b.title for b in books" ng-change="update()"></select>
+                        <label>Title</label>
+                        <input type="text" placeholder="Title..." ng-model="newBook.title" ng-required="true">
+                        <label>Author</label>
+                        <input type="text" placeholder="Author name..." ng-model="newBook.author" ng-required="true">
+                        <label>Release date</label>
+                        <input type="text" placeholder="Release date..." ng-model="newBook.year" ng-required="true">
+                        <label>Genre</label>
+                        <input type="text" placeholder="Genre..." ng-model="newBook.genre" ng-required="true">
+                        <p></p>
+                        <button type="submit" class="btn">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
+
 </body>
 
 </html>

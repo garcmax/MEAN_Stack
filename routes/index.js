@@ -54,7 +54,6 @@ exports.addBook = function (req, res) {
 
 exports.findABook = function (req, res) {
     var bookId = req.params.id;
-    console.log('pute');
     console.log('Retrieving book: ' + bookId);
     db.collection('Books', function (err, collection) {
         collection.findOne({
@@ -67,7 +66,7 @@ exports.findABook = function (req, res) {
 
 exports.updateBook = function (req, res) {
     var id = req.params.id
-    var book = req.body[0];
+    var book = req.body;
     console.log('updating book: ' + id);
     console.log(JSON.stringify(book));
     db.collection('Books', function (err, collection) {

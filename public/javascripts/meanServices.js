@@ -1,30 +1,32 @@
-/*var meanServices = angular.module('meanServices', ['ngResource']);
+var meanServices = angular.module('meanServices', ['ngResource']);
 
-meanServices.factory('dbService', ['$resource',
+meanServices.factory('bookService', ['$resource',
     function ($resource) {
-        return $resource('books/:bookId', {}, {
+        return $resource('/books/:bookId', {}, {
             query: {
                 method: 'GET',
                 params: {
                     bookId: ''
                 },
                 isArray: true
-            }
+            },
             post: {
-                method: 'POST'
+                method: 'POST',
+                isArray: false
             },
             update: {
-                method: 'PUT'
+                method: 'PUT',
+                params: {
+                    bookId: '@book._id'
+                },
+                isArray: false
             },
             remove: {
-                method: 'DELETE'
+                method: 'DELETE',
+                params: {
+                    bookId: '@book._id'
+                },
+                isArray: false
             }
         });
-}]);*/
-
-var meanServices = angular.module('meanServices', ['ngResource']);
-
-meanServices.factory('dbService', ['$resource',
-    function ($resource) {
-        return toto;
-}]);
+    }]);
