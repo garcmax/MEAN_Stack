@@ -16,7 +16,7 @@ db.open(function (err, db) {
             strict: true
         }, function (err, collection) {
             if (err) {
-                console.log("The 'Books' collection doesn't exist. Creating it.");
+                console.log("The 'Books' collection doesn't exist. Create it.");
                 throw err;
             }
         });
